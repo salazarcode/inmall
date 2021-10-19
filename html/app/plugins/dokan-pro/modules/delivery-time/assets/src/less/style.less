@@ -1,0 +1,135 @@
+/*
+Dokan delivery time vendor styles
+*/
+
+/* Delivery time settings */
+#dokan-delivery-time-vendor-settings {
+    position: relative;
+    padding-top: 30px;
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 8px;
+    }
+}
+
+#dokan_delivery_time {
+    .checkbox {
+        display: flex;
+        flex-direction: column;
+
+        div {
+            display: inline;
+        }
+    }
+}
+
+.delivery-time-slot-tabs {
+    .tab-panels {
+        margin-bottom: 16px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                position: relative;
+                list-style-type: none;
+                display: inline-block;
+                margin: 0;
+                padding: 10px 20px;
+                border-radius: 12px 12px 0 0;
+                color: #6d6d6d;
+                cursor: pointer;
+                background: #f5f5f5;
+
+                &.available {
+                    background: #f5f5f5;
+                }
+
+                &:hover {
+                    background: #efefef;
+                }
+
+                &.active {
+                    background: #e5e5e5;
+                }
+
+                &.deactivated {
+                    color: rgba(109, 109, 109, 0.2);
+                }
+            }
+        }
+
+        .panel {
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 30px;
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
+}
+
+#dokan-delivery-time-slot-order-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #43454b;
+
+    .main {
+        margin-left: 4px;
+        display: flex;
+        align-items: center;
+
+        .slot {
+            background: #f8f8f8;
+            padding: 4px 8px;
+            margin-left: 4px;
+            border-radius: 8px;
+        }
+    }
+}
+
+.vendor-delivery-time-box form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+        margin: 16px 0px;
+    }
+}
+
+/* Delivery time vendor dashboard */
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
+    background-color: white !important;
+    border: 1px solid #d6d6d6;
+    color: #6d6d6d;
+}
+
+.fc .fc-button-primary {
+    background-color: #eeeeee;
+    color: #6d6d6d;
+    border: 1px solid #d6d6d6;
+}
+
+.fc .fc-button-primary:hover {
+    background-color: #f05025;
+    border: 1px solid #d6d6d6;
+    color: white;
+}
+
+.fc .fc-button-primary:disabled {
+    background-color: #f3f3f3;
+    color: #a7a7a7;
+    border: 1px solid #a7a7a7;
+}

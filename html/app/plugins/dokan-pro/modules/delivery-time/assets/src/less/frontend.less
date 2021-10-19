@@ -1,0 +1,213 @@
+/*
+Dokan delivery time frontend styles
+*/
+
+#dokan-delivery-time-box {
+    margin: 50px 0px;
+
+    .header .delivery-timezone {
+        display: flex;
+        align-items: center;
+        background: #FAFAFA;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        padding: 8px 16px;
+        color: #666666;
+        span {
+            font-size: 12px;
+        }
+    }
+
+    span {
+        color: #333333;
+        border-radius: 6px;
+        margin: 0px 4px;
+        font-size: 12px;
+    }
+
+    .delivery-time-body {
+        position: relative;
+        margin-top: 16px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        padding: 25px 25px 5px 25px;
+        background: #FAFAFA;
+
+        .delivery-group {
+            width: 100%;
+            margin-bottom: 32px;
+
+            .title {
+                display: flex;
+                align-items: center;
+                margin-bottom: 12px;
+
+                span {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+            }
+
+            .vendor-info {
+                margin-top: 8px;
+                padding: 8px 16px;
+                background: #f3f3f3;
+                border-radius: 8px;
+
+                span {
+                    padding: 0;
+                    margin: 0;
+                    font-size: 12px;
+                    color: #a2a2a2;
+                }
+            }
+
+            span {
+                margin-left: 8px;
+                font-weight: normal;
+                color: #333333;
+            }
+        }
+
+        input {
+            background: white;
+            box-shadow: none;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+            width: 100%;
+            margin-top: 16px;
+            font-weight: normal;
+            color: #6d6d6d;
+        }
+
+        input:focus {
+            border: 2px solid #f2624d;
+            outline: none;
+        }
+
+        select {
+            padding: 0.66em;
+            border-radius: 8px;
+            width: 100%;
+            border: 1px solid #E5E7EB;
+            appearance: none;
+            margin-top: 8px;
+            color: #6d6d6d;
+            display: none;
+        }
+
+        select:focus {
+            border: 2px solid #f2624d;
+            outline: none;
+        }
+    }
+
+    #dokan-spinner-overlay {
+        display: none;
+        position: absolute;
+        border-radius: 8px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        width: 100%;
+        height:100%;
+        background: rgba(0,0,0,0.2);
+
+        .dokan-spinner-wrapper {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dokan-loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px #fff solid;
+            border-top: 4px #f2624d solid;
+            border-radius: 50%;
+            animation: dokan-loading-anime 0.8s infinite linear;
+        }
+    }
+}
+
+
+
+/*== start of code for tooltips ==*/
+.dokan-delivery-time-tooltip {
+    cursor: help;
+    position: relative;
+    text-align: center;
+}
+
+
+/*== common styles for both parts of tool tip ==*/
+.dokan-delivery-time-tooltip::before,
+.dokan-delivery-time-tooltip::after {
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    z-index: -100;
+}
+
+.dokan-delivery-time-tooltip:hover::before,
+.dokan-delivery-time-tooltip:focus::before,
+.dokan-delivery-time-tooltip:hover::after,
+.dokan-delivery-time-tooltip:focus::after {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    z-index: 100;
+}
+
+
+/*== pointer tip ==*/
+.dokan-delivery-time-tooltip::before {
+    border-style: solid;
+    border-width: 1em 0.75em 0 0.75em;
+    border-color: #3E474F transparent transparent transparent;
+    bottom: 100%;
+    content: "";
+    margin-left: -0.5em;
+    transition: all .65s cubic-bezier(.84,-0.18,.31,1.26), opacity .65s .5s;
+    transform:  scale(.6) translateY(-90%);
+}
+
+.dokan-delivery-time-tooltip:hover::before,
+.dokan-delivery-time-tooltip:focus::before {
+    transition: all .65s cubic-bezier(.84,-0.18,.31,1.26) .2s;
+}
+
+
+/*== speech bubble ==*/
+.dokan-delivery-time-tooltip::after {
+    background: #3E474F;
+    border-radius: 6px;
+    bottom: 120%;
+    color: #EDEFF0;
+    content: attr(data-tip);
+    margin-left: -8.75em;
+    padding: 1em;
+    transition: all .65s cubic-bezier(.84,-0.18,.31,1.26) .2s;
+    transform:  scale(.6) translateY(50%);
+    width: 17.5em;
+}
+
+.dokan-delivery-time-tooltip:hover::after,
+.dokan-delivery-time-tooltip:focus::after  {
+    transition: all .65s cubic-bezier(.84,-0.18,.31,1.26);
+}
+
+@media (max-width: 760px) {
+    .dokan-delivery-time-tooltip::after {
+        font-size: .75em;
+        margin-left: -5em;
+        width: 10em;
+    }
+}
+
+@keyframes dokan-loading-anime {
+    100% {
+        transform: rotate(360deg);
+    }
+}
